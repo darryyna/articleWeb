@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../../models/article.model';
-import { selectArticles } from '../../state/articles/articles.selectors';
+import { selectFilteredArticles, selectSearchKeywords } from '../../state/articles/articles.selectors';
 import { Store } from '@ngrx/store';
 import { loadArticles } from '../../state/articles/articles.actions';
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-home-page',
@@ -10,8 +11,8 @@ import { loadArticles } from '../../state/articles/articles.actions';
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent implements OnInit {
-  articles: Article[] = [];
-  articles$ = this.store.select(selectArticles);
+  articles$: Observable<Article[]> = this.store.select(selectFilteredArticles);
+  searchKeywords$: Observable<string> = this.store.select(selectSearchKeywords);
 
   constructor(private readonly store: Store) {}
 

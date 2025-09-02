@@ -1,0 +1,22 @@
+.search-container {
+  margin-bottom: 20px;
+
+  .search-label {
+    margin: 20px 0;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--primary-text-color);
+  }
+
+  .search-field {
+    width: 100%;
+    max-width: 400px;
+
+    .clear-button {
+      mat-icon {
+        font-size: 20px;
+        color: var(--primary-text-color);
+      }
+    }
+  }
+}

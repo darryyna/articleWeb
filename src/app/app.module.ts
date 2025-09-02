@@ -29,6 +29,7 @@ import { articlesReducer } from './core/state/articles/articles.reducers';
 import { ArticlesEffects } from './core/state/articles/articles.effects';
 import {MatProgressBar} from '@angular/material/progress-bar';
 import { TruncatePipe } from "./core/pipes/truncate.pipe";
+import {HighlightKeywordsDirective} from "./core/directives/highlight-filtered.directive";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { TruncatePipe } from "./core/pipes/truncate.pipe";
     LoaderComponent,
     ErrorDialogComponent,
     NoResultsPageComponent,
-    TruncatePipe
+    TruncatePipe,
+    HighlightKeywordsDirective
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,7 @@ import { TruncatePipe } from "./core/pipes/truncate.pipe";
       maxAge: 25,
       logOnly: false,
       autoPause: true,
-      trace: false,
+      trace: true,
       traceLimit: 75
     }),
     MatProgressBar
