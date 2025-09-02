@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from "rxjs";
+import {delay, Observable} from "rxjs";
 import { Store } from "@ngrx/store";
 import { selectIsLoading } from "./core/state/articles/articles.selectors";
 
@@ -13,6 +13,8 @@ export class AppComponent {
   isLoading$: Observable<boolean>;
 
   constructor(private readonly store: Store) {
-    this.isLoading$ = this.store.select(selectIsLoading);
+    this.isLoading$ = this.store.select(selectIsLoading).pipe(
+      delay(0)
+    );
   }
 }

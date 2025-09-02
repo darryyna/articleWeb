@@ -13,17 +13,22 @@ export const selectSelectedArticle = createSelector(
   state => state.selectedArticle
 );
 
-export const selectArticlesLoading = createSelector(
+export const selectIsLoading = createSelector(
   selectArticlesState,
   state => state.isLoading
+);
+
+export const selectFilteredArticles = createSelector(
+  selectArticlesState,
+  state => state.filteredArticles
+);
+
+export const selectSearchKeywords = createSelector(
+  selectArticlesState,
+  state => state.searchKeywords
 );
 
 export const selectArticlesError = createSelector(
   selectArticlesState,
   state => state.error
-);
-
-export const selectIsLoading = createSelector(
-  selectArticlesState,
-  (state: ArticlesState) => state.isLoading
 );

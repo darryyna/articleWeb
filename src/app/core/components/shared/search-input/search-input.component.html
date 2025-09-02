@@ -1,8 +1,12 @@
-<div>
-  <p>Filter by keywords</p>
-  <mat-form-field appearance="outline">
-    <mat-label>Search</mat-label>
+<div class="search-container">
+  <p class="search-label">Filter by keywords</p>
+  <mat-form-field appearance="outline" class="search-field">
     <mat-icon matSuffix>search</mat-icon>
-    <input matInput placeholder="Type here">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      placeholder="Type here"
+      [formControl]="searchControl"
+      autocomplete="off">
   </mat-form-field>
 </div>

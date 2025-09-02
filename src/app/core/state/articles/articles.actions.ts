@@ -27,3 +27,9 @@ export const loadArticleFailure = createAction(
   '[Articles] Load Article Error',
   props<{ error: any }>()
 );
+
+export const setSearchKeywords = createAction(
+  '[Articles] Set Search Keywords',
+  props<{ keywords: string }>() );
+
+export const clearSearch = createAction('[Articles] Clear Search');
