@@ -35,24 +35,4 @@ export class ArticlesEffects {
       )
     )
   );
-
-  loadArticle$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(ArticlesActions.loadArticle),
-      mergeMap(action =>
-        this.articlesService.getArticleById(action.id).pipe(
-          map(article => ArticlesActions.loadArticleSuccess({ article })),
-          catchError(error => {
-            this.snackBar.openFromComponent(ErrorDialogComponent, {
-              data: { message: 'Error while loading the article' },
-              duration: 3000,
-              horizontalPosition: 'center',
-              verticalPosition: 'top'
-            });
-            return of(ArticlesActions.loadArticleFailure({ error }));
-          })
-        )
-      )
-    )
-  );
 }

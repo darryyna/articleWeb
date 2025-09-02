@@ -4,7 +4,7 @@
   <mat-card-content>
     <div class="date">
       <mat-icon>calendar_today</mat-icon>
-      {{ article.published_at }}
+      {{ article.published_at  | date:'mediumDate' }}
     </div>
     <h2
       class="title"

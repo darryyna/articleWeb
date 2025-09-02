@@ -3,16 +3,6 @@ import { ArticlesState } from './articles.reducers';
 
 export const selectArticlesState = createFeatureSelector<ArticlesState>('articles');
 
-export const selectArticles = createSelector(
-  selectArticlesState,
-  state => state.articles
-);
-
-export const selectSelectedArticle = createSelector(
-  selectArticlesState,
-  state => state.selectedArticle
-);
-
 export const selectIsLoading = createSelector(
   selectArticlesState,
   state => state.isLoading
