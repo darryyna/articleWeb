@@ -13,17 +13,8 @@ export const loadArticlesFailure = createAction(
   props<{ error: any }>()
 );
 
-export const loadArticle = createAction(
-  '[Articles] Load Article',
-  props<{ id: number }>()
-);
+export const setSearchKeywords = createAction(
+  '[Articles] Set Search Keywords',
+  props<{ keywords: string }>() );
 
-export const loadArticleSuccess = createAction(
-  '[Articles] Load Article Success',
-  props<{ article: Article }>()
-);
-
-export const loadArticleFailure = createAction(
-  '[Articles] Load Article Error',
-  props<{ error: any }>()
-);
+export const clearSearch = createAction('[Articles] Clear Search');

@@ -43,8 +43,7 @@
   mat-card-header {
     padding: 0 0 16px 0;
     mat-card-title {
-      font-size: 1.8rem;
-      font-weight: 700;
+      font-size: 25px;
       text-align: center;
     }
   }
@@ -59,7 +58,7 @@
 
   mat-card-content {
     .description {
-      font-size: 1rem;
+      font-size: 16px;
       color: var(--description-text-color);
       text-align: justify;
     }

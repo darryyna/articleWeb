@@ -1,1 +1,16 @@
-<p>no-results-page works!</p>
+<div class="no-results-container">
+  <div class="no-results-content">
+    <h2 class="no-results-title">No results found</h2>
+    <p class="no-results-description">
+      Try changing keywords or clearing your search to see all articles.
+    </p>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="clearSearch()"
+      class="clear-search-button">
+      <mat-icon>clear</mat-icon>
+      Clear
+    </button>
+  </div>
+</div>

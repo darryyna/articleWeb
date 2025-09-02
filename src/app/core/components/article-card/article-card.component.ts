@@ -8,4 +8,5 @@ import { Article } from '../../models/article.model';
 })
 export class ArticleCardComponent {
   @Input() article!: Article;
+  @Input() searchKeywords: string = '';
 }

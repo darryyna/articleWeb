@@ -1,10 +1,18 @@
 <div class="content-wrapper">
   <app-search-input></app-search-input>
-  <div class="articles-container">
+
+  <div class="articles-container" *ngIf="(articles$ | async)?.length; else noResults">
     <app-article-card
       class="article-card"
       *ngFor="let article of (articles$ | async)"
-      [article]="article">
+      [article]="article"
+      [searchKeywords]="(searchKeywords$ | async) || ''">
     </app-article-card>
   </div>
+
+  <ng-template #noResults>
+    <app-no-results-page
+      *ngIf="(articles$ | async) && (searchKeywords$ | async)">
+    </app-no-results-page>
+  </ng-template>
 </div>

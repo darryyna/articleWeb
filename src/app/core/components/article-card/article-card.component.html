@@ -4,14 +4,23 @@
   <mat-card-content>
     <div class="date">
       <mat-icon>calendar_today</mat-icon>
-      {{ article.published_at }}
+      {{ article.published_at  | date:'mediumDate' }}
     </div>
-    <h2 class="title">{{ article.title }}</h2>
-    <p class="description">{{ article.summary | truncate:100 }}</p>
+    <h2
+      class="title"
+      [appHighlightKeywords]="article.title"
+      [keywords]="searchKeywords">
+    </h2>
+    <p
+      class="description"
+      [appHighlightKeywords]="article.summary | truncate:100"
+      [keywords]="searchKeywords">
+    </p>
   </mat-card-content>
 
   <mat-card-actions>
-    <a mat-button class="read-more" [routerLink]="['/details', article.id]">Read more
+    <a mat-button class="read-more" [routerLink]="['/details', article.id]">
+      Read more
     </a>
   </mat-card-actions>
 </mat-card>
