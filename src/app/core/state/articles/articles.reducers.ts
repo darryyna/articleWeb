@@ -5,7 +5,6 @@ import { filterArticles } from '../../utils/articles.utils';
 
 export interface ArticlesState {
   articles: Article[];
-  selectedArticle: Article | null;
   filteredArticles: Article[];
   searchKeywords: string;
   isLoading: boolean;
@@ -14,7 +13,6 @@ export interface ArticlesState {
 
 export const initialState: ArticlesState = {
   articles: [],
-  selectedArticle: null,
   filteredArticles: [],
   searchKeywords: '',
   isLoading: false,
@@ -40,24 +38,6 @@ export const articlesReducer = createReducer(
   })),
 
   on(ArticlesActions.loadArticlesFailure, (state, { error }) => ({
-    ...state,
-    isLoading: false,
-    error
-  })),
-
-  on(ArticlesActions.loadArticle, state => ({
-    ...state,
-    isLoading: true,
-    error: null
-  })),
-
-  on(ArticlesActions.loadArticleSuccess, (state, { article }) => ({
-    ...state,
-    isLoading: false,
-    selectedArticle: article
-  })),
-
-  on(ArticlesActions.loadArticleFailure, (state, { error }) => ({
     ...state,
     isLoading: false,
     error
