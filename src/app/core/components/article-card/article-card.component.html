@@ -1,13 +1,13 @@
 <mat-card class="article-card">
-  <img mat-card-image [src]="article.imageUrl" alt="{{ article.title }}" />
+  <img mat-card-image [src]="article.image_url" alt="{{ article.title }}" />
 
   <mat-card-content>
     <div class="date">
       <mat-icon>calendar_today</mat-icon>
-      {{ article.publicationDate }}
+      {{ article.published_at }}
     </div>
     <h2 class="title">{{ article.title }}</h2>
-    <p class="description">{{ article.description }}</p>
+    <p class="description">{{ article.summary | truncate:100 }}</p>
   </mat-card-content>
 
   <mat-card-actions>

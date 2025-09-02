@@ -1,11 +1,11 @@
 .article-detail-wrapper {
   position: relative;
-  min-height: 100vh;
   width: 100%;
   background-color: var(--primary-background-color);
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  padding-top: 200px;
 }
 
 .article-hero {
@@ -13,13 +13,14 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 300px;
+  max-height: 400px;
   overflow: hidden;
   z-index: 0;
 
   img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 400px;
     object-fit: cover;
     filter: brightness(0.7);
   }
@@ -30,7 +31,6 @@
   z-index: 1;
   max-width: 900px;
   width: 100%;
-  margin-top: 200px;
   background: var(--secondary-background-color);
   border-radius: 8px;
   padding: 32px;
@@ -38,6 +38,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-bottom: 200px;
 
   mat-card-header {
     padding: 0 0 16px 0;

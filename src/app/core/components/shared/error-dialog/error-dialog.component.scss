@@ -1,0 +1,17 @@
+.error-dialog {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--specific-text-color);
+  font-size: 14px;
+}
+
+.error-icon {
+  color: var(--error-icon-color);
+  font-size: 20px;
+}
+
+.error-message {
+  flex: 1;
+  font-weight: 500;
+}

@@ -1,7 +1,9 @@
-import {Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from '../../models/article.model';
-import { ArticlesService } from '../../services/articles.service';
+import { selectSelectedArticle } from '../../state/articles/articles.selectors';
+import { loadArticle } from '../../state/articles/articles.actions';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-article-details',
@@ -11,15 +13,12 @@ import { ArticlesService } from '../../services/articles.service';
 export class ArticleDetailsComponent implements OnInit {
 
   public article!: Article;
-  constructor(
-    private route: ActivatedRoute,
-    private articleService: ArticlesService
-  ) {}
+  article$ = this.store.select(selectSelectedArticle);
+
+  constructor(private readonly store: Store, private readonly route: ActivatedRoute) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.articleService.getArticleById(id).subscribe(article => {
-      this.article = article;
-    });
+    this.store.dispatch(loadArticle({ id }));
   }
 }
