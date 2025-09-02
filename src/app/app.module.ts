@@ -25,6 +25,10 @@ import { SearchInputComponent } from './core/components/shared/search-input/sear
 import { LoaderComponent } from './core/components/shared/loader/loader.component';
 import { ErrorDialogComponent } from './core/components/shared/error-dialog/error-dialog.component';
 import { NoResultsPageComponent } from './core/components/shared/no-results-page/no-results-page.component';
+import { articlesReducer } from './core/state/articles/articles.reducers';
+import { ArticlesEffects } from './core/state/articles/articles.effects';
+import {MatProgressBar} from '@angular/material/progress-bar';
+import { TruncatePipe } from "./core/pipes/truncate.pipe";
 
 @NgModule({
   declarations: [
@@ -36,7 +40,8 @@ import { NoResultsPageComponent } from './core/components/shared/no-results-page
     SearchInputComponent,
     LoaderComponent,
     ErrorDialogComponent,
-    NoResultsPageComponent
+    NoResultsPageComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
@@ -52,8 +57,8 @@ import { NoResultsPageComponent } from './core/components/shared/no-results-page
     MatIconModule,
     MatToolbarModule,
 
-    StoreModule.forRoot({}), // add later when store is ready
-    EffectsModule.forRoot([]), // comment above also applies
+    StoreModule.forRoot({articles: articlesReducer}),
+    EffectsModule.forRoot([ArticlesEffects]),
 
     StoreDevtoolsModule.instrument({
       maxAge: 25,
@@ -61,7 +66,8 @@ import { NoResultsPageComponent } from './core/components/shared/no-results-page
       autoPause: true,
       trace: false,
       traceLimit: 75
-    })
+    }),
+    MatProgressBar
   ],
   providers: [
     provideAnimationsAsync()

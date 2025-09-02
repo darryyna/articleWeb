@@ -40,6 +40,7 @@ module.exports = tseslint.config(
       semi: ["error", "always"],
       indent: ["error", 2],
     },
+    '@angular-eslint/use-injectable-providers': 'off',
   },
   {
     files: ["**/*.html"],

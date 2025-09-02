@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../../models/article.model';
-import { ArticlesService } from '../../services/articles.service';
+import { selectArticles } from '../../state/articles/articles.selectors';
+import { Store } from '@ngrx/store';
+import { loadArticles } from '../../state/articles/articles.actions';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -8,12 +11,11 @@ import { ArticlesService } from '../../services/articles.service';
 })
 export class HomePageComponent implements OnInit {
   articles: Article[] = [];
+  articles$ = this.store.select(selectArticles);
 
-  constructor(private articleService: ArticlesService) {}
+  constructor(private readonly store: Store) {}
 
   ngOnInit(): void {
-    this.articleService.getArticles().subscribe(articles => {
-      this.articles = articles;
-    });
+    this.store.dispatch(loadArticles());
   }
 }

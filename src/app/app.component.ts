@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from "rxjs";
+import { Store } from "@ngrx/store";
+import { selectIsLoading } from "./core/state/articles/articles.selectors";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'article-web';
+  isLoading$: Observable<boolean>;
+
+  constructor(private readonly store: Store) {
+    this.isLoading$ = this.store.select(selectIsLoading);
+  }
 }
